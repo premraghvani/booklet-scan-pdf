@@ -1,8 +1,8 @@
 /* >> OPTIONS << */
 const inputFile = "input.pdf";
 const outputFile = "output.pdf";
-const inputModes = 2;
-const outputModes = 1;
+const inputModes = 0;
+const outputModes = 0;
 let size = [ 595.28, 841.89 ];
 
 /* >> DEPENDENCIES << */
@@ -85,9 +85,7 @@ function findOrdering(len){
         for(var i = 0; i < tmp.length; i++){
             ordering.push(tmp[tmp.length-1-i]);
         }
-    } else if(inputModes == 1){ // long side, front is front
-
-    } else if(inputModes == 2){ // short side, back is front
+    } else if(inputModes == 1){ // short side, back is front
         let tmp = [];
         let rhs = true;
         for(var i = (len/2)-1; i >= 0; i--){
@@ -104,8 +102,6 @@ function findOrdering(len){
         for(var i = 0; i < tmp.length; i++){
             ordering.push(tmp[tmp.length-1-i]);
         }
-    } else if(inputModes == 3){ // long side, back is front
-
-    }
+    } 
     return {order:ordering,rotate:rotations};
 }
